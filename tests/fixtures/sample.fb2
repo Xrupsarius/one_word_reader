@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FictionBook xmlns="http://www.gribuser.ru/xml/fictionbook/2.0">
+  <description><title-info><author><first-name>Иван</first-name><last-name>Автор</last-name></author><book-title>Тестовая книга</book-title></title-info></description>
+  <body>
+    <section><title><p>Начало</p></title><p>Первый <emphasis>абзац</emphasis>.</p><section><title><p>Подглава</p></title><p>Вложенный текст.</p></section></section>
+    <section><title><p>Продолжение</p></title><p>Второй абзац.</p></section>
+  </body>
+  <body name="notes"><section><p>Это сноска.</p></section></body>
+  <binary id="image">BINARYGARBAGE</binary>
+</FictionBook>

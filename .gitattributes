@@ -1,0 +1,4 @@
+*.pdf binary
+*.epub binary
+*.docx binary
+tests/fixtures/empty.txt whitespace=-blank-at-eol,-blank-at-eof

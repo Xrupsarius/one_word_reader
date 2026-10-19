@@ -1,0 +1,6 @@
+node_modules/
+dist/
+public/pdf-assets/
+tests/fixtures/
+rsvp-reader.html
+package-lock.json
