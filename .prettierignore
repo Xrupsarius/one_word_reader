@@ -1,6 +1,8 @@
 node_modules/
 dist/
+dist-native/
+android/
+ios/
 public/pdf-assets/
 tests/fixtures/
-rsvp-reader.html
 package-lock.json

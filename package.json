@@ -11,12 +11,24 @@
     "dev": "vite --host 0.0.0.0",
     "build": "node scripts/prepare-pdf-assets.mjs && tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
+    "build:native": "node scripts/prepare-pdf-assets.mjs && tsc --noEmit && vite build --mode native",
+    "native:sync": "npm run build:native && cap sync",
+    "android:sync": "npm run build:native && cap sync android",
+    "ios:sync": "npm run build:native && cap sync ios",
+    "android:open": "cap open android",
+    "ios:open": "cap open ios",
+    "android:run": "npm run android:sync && cap run android",
+    "ios:run": "npm run ios:sync && cap run ios",
+    "android:apk": "npm run android:sync && node scripts/android-apk.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
-    "format": "prettier --write src tests scripts vite.config.ts tsconfig.json package.json index.html",
-    "format:check": "prettier --check src tests scripts vite.config.ts tsconfig.json package.json index.html"
+    "format": "prettier --write src tests scripts vite.config.ts capacitor.config.ts tsconfig.json package.json index.html",
+    "format:check": "prettier --check src tests scripts vite.config.ts capacitor.config.ts tsconfig.json package.json index.html"
   },
   "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/ios": "^8.5.3",
     "@xmldom/xmldom": "^0.9.12",
     "idb": "^8.0.4",
     "jszip": "^3.10.2",
@@ -26,6 +38,7 @@
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",

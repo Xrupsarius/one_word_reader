@@ -2,12 +2,14 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   base: './',
+  build: { outDir: mode === 'native' ? 'dist-native' : 'dist' },
   worker: { format: 'es' },
   plugins: [
     react(),
     VitePWA({
+      disable: mode === 'native',
       registerType: 'prompt',
       includeAssets: ['icon.svg', 'icon-192.png', 'icon-512.png'],
       manifest: {
@@ -33,4 +35,4 @@ export default defineConfig({
       },
     }),
   ],
-});
+}));

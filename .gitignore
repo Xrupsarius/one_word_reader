@@ -5,3 +5,8 @@ coverage/
 *.local
 public/pdf-assets/
 .idea/
+dist-native/
+*.jks
+*.keystore
+*.p12
+*.mobileprovision

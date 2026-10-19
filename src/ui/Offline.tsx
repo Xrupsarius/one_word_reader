@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { registerSW } from 'virtual:pwa-register';
+import { Capacitor } from '@capacitor/core';
 import { ru as t } from '../i18n/ru';
 
 export function Offline({ onUpdate }: { onUpdate(): void }) {
@@ -8,6 +9,7 @@ export function Offline({ onUpdate }: { onUpdate(): void }) {
   const [error, setError] = useState(false);
   const apply = useRef<((reload?: boolean) => Promise<void>) | null>(null);
   useEffect(() => {
+    if (Capacitor.isNativePlatform()) return;
     apply.current = registerSW({
       onOfflineReady: () => setReady(true),
       onNeedRefresh: () => setUpdate(true),
